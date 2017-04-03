@@ -2,9 +2,8 @@
   <label for="settings_field-to-link">Setting field to link with spent & estimated time.</label>
   <%= select_tag "settings[status-#field-to-link]",
                  options_from_collection_for_select(
-                     [[l(:label_no_change_option), '']] +
                      IssueCustomField.all,
-                     :last, :first, @settings["status-#field-to-link"]
+                     :name, :name, @settings["status-#field-to-link"]
                  ) %>
 </p>
 
