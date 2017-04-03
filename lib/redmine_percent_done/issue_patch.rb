@@ -15,7 +15,7 @@ module RedminePercentDone
         to_rtn = 0
         field_id = RedminePercentDone.get_field_id
 
-        if (field_value = self.custom_field_values(field_id))
+        if (field_value = self.custom_field_values[field_id])
           if field_value.zero? && self.spent_hours > 0
             to_rtn = 100
           elseif field_value > 0 && self.spent_hours > 0
