@@ -14,8 +14,16 @@ module RedminePercentDone
       def update_done_ratio_for_status
         to_rtn = 0
         field_id = RedminePercentDone.get_field_id
+        field_value = nil
 
-        if (field_value = self.custom_field_values[field_id])
+        self.custom_field_values.each {
+            |field|
+          if field.id == field_id
+            field_value = field
+          end
+        }
+
+        if field_value
           if field_value.zero? && self.spent_hours > 0
             to_rtn = 100
           elseif field_value > 0 && self.spent_hours > 0
