@@ -3,7 +3,7 @@
   <%= select_tag "settings[status-#field-to-link]",
                  options_from_collection_for_select(
                      IssueCustomField.all,
-                     :name, :name, @settings["status-#field-to-link"]
+                     :id, :name, @settings["status-#field-to-link"]
                  ) %>
 </p>
 
