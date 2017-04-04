@@ -6,7 +6,7 @@ module RedminePercentDone
 
   def self.get_field_name
     unless (percent_done = Setting.plugin_redmine_percent_done["status-#field-to-link"]).blank?
-      percent_done.to_i
+      percent_done
     end
   end
 
@@ -17,7 +17,7 @@ module RedminePercentDone
     issue.custom_field_values.each {
         |field|
       if field.custom_field.name == field_name
-        field_value = field.value
+        field_value = field.value.to_f
       end
     }
 
